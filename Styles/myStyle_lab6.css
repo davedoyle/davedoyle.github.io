@@ -1,0 +1,60 @@
+@media(min-width:945px){
+.container-1{
+      display:flex;
+	  align-items:flex-start;
+	  flex-grow: 1;
+    }
+
+ .container-2{
+      display:flex;  
+	  border:1px #ccc solid;
+      justify-content:space-between;
+    }
+}
+
+
+body{
+	background-color:black;
+	background-image: linear-gradient(to bottom right, grey, black);
+	text-align: center;
+	color: white;
+	
+}
+
+h4{
+	background-color:white;
+	color:black;
+}
+
+.tasty{
+	background-color:black;
+	color:white;
+}
+
+.tastymodal{
+	background-color:grey;
+	color:white;
+}
+
+.textw{
+	color:white;
+}
+
+.row{
+	margin-top:100px;
+	min-height:100px;
+	justify-content:space-between;
+}
+
+
+#lnkprof{
+	
+}
+
+
+#skllz{
+	
+}
+
+
+
