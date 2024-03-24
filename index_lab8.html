@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<title>RPS</title>
+	</head>
+	<style>
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	</style>
+
+	<body>
+	
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 font-weight-bold text-center">
+		<h1>ROCK PAPER SCISSORS AGAINST THE MACHINE!</h1>
+		</div>
+  </div>
+</div>
+	
+<div class="container">
+  <div class="row">
+	<div class="col-md-6">
+	
+	
+	<select class="form-select form-select-lg mb-3" id="rockpaperscissorschoice" onchange="pickAChoice()"> 
+		<option value="0">Please Select</option>
+		<option value="1">Rock</option>
+		<option value="2">Paper</option>
+		<option value="3">Scissors</option>
+	</select>
+	</div>
+	<div class="col-md-6">
+	
+	<button id="button" onclick="gameTime()" class="btn btn-danger" style="display: none;">LETS PLAY!!</button>
+	
+	</div
+
+
+<div class="container">
+	<div class="row">	
+	<div class="col-sm-4">
+		<div id="rock" class="fs-1" style="display: none;">Human chooses: ROCK<img src="Images/rock.png" class="img-responsive d-block w-100" ></div>
+		<div id="scissors" class="fs-1" style="display: none;">Human chooses: Scissors<img src="Images/scissors.png" class="img-responsive d-block w-100" ></div>
+		<div id="paper" class="fs-1" style="display: none;">Human chooses: Paper<img src="Imagespaper.png" class="img-responsive d-block w-100" ></div>
+	</div>
+	<div class="col-sm-4">
+		<div id="comp_rock" class="fs-1"  style="display: none;">Machine chooses: ROCK<img src="Images/rock.png" class="img-responsive d-block w-100" ></div>
+		<div id="comp_scissors" class="fs-1" style="display: none;">Machine chooses: Scissors<img src="Images/scissors.png" class="img-responsive d-block w-100" ></div>
+		<div id="comp_paper" class="fs-1" style="display: none;">Machine chooses: Paper<img src="Images/paper.png" class="img-responsive d-block w-100" ></div>
+	</div>
+	<div class="col-sm-4">
+		<div id="test1" class="fs-1" style="display: none;">Draw: Both will fight another day!</div>
+		<div id="test2" class="fs-1" style="display: none;">Humans Win : The humans are safe.</div>
+		<div id="test3" class="fs-1" style="display: none;">Humans Lose : The machines rise!</div>
+	</div>
+</div>
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+	<div class="text-center">
+		<div class="wrapper">
+  <button id="rstButton" class="btn btn-light position-relative text-centre" style="display: none;" onclick="reload()" >***RESET***</button>
+		</div>
+	</div>
+  </div>
+  </div>
+  </div>
+
+<script type="text/javascript">
+
+
+function reload(){
+	window.location.reload();//learned from stackexchange
+}
+
+
+
+function pickAChoice(){
+	if(document.getElementById("rockpaperscissorschoice").value == 1){
+		document.getElementById("rock").style.display = "block";
+		document.getElementById("paper").style.display = "none";
+		document.getElementById("scissors").style.display = "none";
+	}
+	else if(document.getElementById("rockpaperscissorschoice").value == 2){
+		document.getElementById("rock").style.display = "none";
+		document.getElementById("paper").style.display = "block";
+		document.getElementById("scissors").style.display = "none";
+	}
+	else if(document.getElementById("rockpaperscissorschoice").value == 3){
+		document.getElementById("rock").style.display = "none";
+		document.getElementById("paper").style.display = "none";
+		document.getElementById("scissors").style.display = "block";
+	}
+	
+	
+	document.getElementById("button").style.display = "block";
+	
+	
+}
+
+//this function was picked up from stackexchange
+function randomIntFromInterval(min, max) { // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function gameTime(){
+	document.getElementById("button").style.display = "none";
+	
+	const human = parseInt(document.getElementById("rockpaperscissorschoice").value);
+	const computer = randomIntFromInterval(1, 3);
+	
+	document.getElementById("rockpaperscissorschoice").style.display = "none";
+	
+	if (computer === 1){
+	  	document.getElementById("comp_rock").style.display = "block";
+		document.getElementById("comp_paper").style.display = "none";
+		document.getElementById("comp_scissors").style.display = "none";
+	}
+	else if(computer === 2){
+	  	document.getElementById("comp_rock").style.display = "none";
+		document.getElementById("comp_paper").style.display = "block";
+		document.getElementById("comp_scissors").style.display = "none";
+	}
+	else if(computer === 3){
+	  	document.getElementById("comp_rock").style.display = "none";
+		document.getElementById("comp_paper").style.display = "none";
+		document.getElementById("comp_scissors").style.display = "block";	
+	}
+
+	//draw
+	if((human === 1 && computer === 1) || (human === 2 && computer === 2) || (human === 3 && computer === 3)){
+		document.getElementById("test1").style.display = "block";
+		document.getElementById("test2").style.display = "none";
+		document.getElementById("test3").style.display = "none";		
+		document.body.style.background = "blue";
+	}
+	//human win
+	else if ((human === 1 && computer === 3) || (human === 2 &&  computer === 1) || (human === 3 && computer === 2)){
+		document.getElementById("test1").style.display = "none";
+		document.getElementById("test2").style.display = "block";
+		document.getElementById("test3").style.display = "none";	
+		document.body.style.background = "green";
+	}
+	//computer win!
+	else {
+		document.getElementById("test1").style.display = "none";
+		document.getElementById("test2").style.display = "none";
+		document.getElementById("test3").style.display = "block";
+		document.body.style.background = "red";
+	}
+	
+	
+	document.getElementById("rstButton").style.display = "block";
+	
+	
+}
+
+
+</script>
+	
+	
+	</body>
+	
+</html>
