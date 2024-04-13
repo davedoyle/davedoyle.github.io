@@ -32,3 +32,34 @@ h4{
 	min-height:100px;
 	justify-content:space-between;
 }
+
+
+    
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      height: 5px;
+    }
+
+    /* Styling for the button */
+    #beerButton {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      background-color: green;
+      color: white;
+      z-index: 1001; /* Ensure it's above the progress bar */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+	
+	
+    #main{
+      text-align: center;
+    }
