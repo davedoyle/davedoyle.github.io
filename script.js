@@ -69,3 +69,49 @@ function subjects() {
         document.getElementById("main").innerHTML += "<br /> Subject " + i + " Grade = " + resulttext;
     }
 };
+
+/*
+Create an application that asks a user to enter how many subjects they have. 
+The application should then ask the user to enter the results for each subject. 
+Store these results in an array and print them back to the user along with their overall average and grade for each module.
+
+*/
+
+
+function subjects(){
+	
+	let results = [];
+	const subjectsCount = prompt("How Many Subjects do you do?");
+	let text = "OK, so you do " + subjectsCount + " subjects";
+    document.getElementById("main").innerHTML = text;
+	
+	for (let i = 0; i < subjectsCount; i++) {
+        const result = parseInt(prompt("What was the result for subject " + (i + 1) + ", between 1 and 100?"), 10);
+        results.push(result); // Store the result in the array
+
+        let resulttext = "x";
+        if (result > 80) {
+            resulttext = "A";
+        } else if (result >= 60) {
+            resulttext = "B";
+        } else if (result >= 45) {
+            resulttext = "C";
+        } else if (result >= 40) {
+            resulttext = "D";
+        } else {
+            resulttext = "FAIL";
+        }
+
+        document.getElementById("main").innerHTML += "<br /> Subject " + (i + 1) + " Grade = " + resulttext + ", your result was " + result;
+    }
+
+	let average = 0 //allows change in the future (w3schools)
+	for(i=0;i<results.length;i++){
+		average = average + results[i]
+	}
+	
+	average = average/subjectsCount;
+	
+	document.getElementById("main").innerHTML += "<br />Average Result: " + average;
+
+};
